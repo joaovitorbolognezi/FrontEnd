@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang = "pt-BR">
+<head>
+	<title>Manipulando Strings</title>
+	<meta charset = "UTF-8">
+	<meta name="viewport" content="width = device-width, inital-scale=1.0">
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+	<div class="header">
+		<header>
+			<h1>Bem vindo a minha pagina de nota de aula!!</h1>
+			<p>Anotações sobre manipulação de strings em C<p>
+		</header>
+	 </div>
+
+	<nav>
+        	<a href="#include-stringh" target="_self">#include &lt;string.h&gt;</a>
+       	 	<a href="#strcpy( )" target="_self">strcpy( )</a>
+       	 	<a href="#strncpy( )" target="_self">strncpy( )</a>
+        	<a href="#strcmp( )" target="_self">strcmp( )</a>
+        	<a href="#strncmp( )" target="_self">strncmp( )</a>
+        	<a href="#strlen( )" target="_self">strlen( )</a>
+        	<a href="#strcat( )" target="_self">strcat( )</a>
+        	<a href="#strncat( )" target="_self">strncat( )</a>
+        	<a href="#feedback" target="_self">Feedback</a>
+	</nav>
+
+	<div id="main">
+		<br>
+		<section id="include-stringh">
+			<h3>É o que faz tudo funcionar</h3>
+			<p>É uma das bibliotecas principais em <b>C</b> aprendida no ultimo smestre onde é necessaria para ter acesso a todos os outros metodos para <i>manipular strings!</i> Sem ela, não é possível usar nenhuma das funções abaixo!</p>
+		</section>
+		<br>
+		<section id="strcpy( )">
+    			<h3>strcpy( ) - Copiar string</h3>
+    			<p>Função usada para <b>copiar</b> o conteúdo de uma string para outra</p>
+    			<p><b>Sintaxe:</b> strcpy(destino, origem);</p>
+    			<p><b>Exemplo:</b></p>
+    			<pre>char nome[20];</pre>
+			<pre>strcpy(nome, "João");  // nome agora contém "João"</pre>
+		</section>
+		<br>
+		<section id="strncpy( )">
+    			<h3>strncpy( ) - Copiar com limite</h3>
+    			<p>Similar ao strcpy( ), mas permite <b>limitar</b> o número de caracteres copiados</p>
+    			<p><b>Sintaxe:</b>strncpy(destino, origem, n);</p>
+    			<p><b>Exemplo:</b></p>
+    			<pre>char nome[20];</pre>
+			<pre>strncpy(nome, "João Vitor", 4);  // copia só "João"</pre>
+		</section>
+		<br>
+		<section id="strcmp( )">
+    			<h3>strcmp( )  - Comparar strings</h3>
+    			<p>Função que <b>compara</b> duas strings e retorna:</p>
+    			<ul>
+        			<li><b>0</b> se as strings são iguais</li>
+        			<li><b>&lt; 0</b> se a primeira é menor</li>
+        			<li><b>&gt; 0</b> se a primeira é maior</li>
+    			</ul>
+    			<p><b>Sintaxe:</b> strcmp(string1, string2);</p>
+    			<p><b>Exemplo:</b></p>
+    			<pre>if (strcmp(senha, "1234") == 0) {</pre>
+    			<pre>printf("Acesso permitido");</pre>
+			<pre>}</pre>
+		</section>
+		<br>
+		<section id="strncmp( )">
+    			<h3>strncmp( ) - Comparar com limite</h3>
+    			<p>Compara apenas os <b>primeiros n caracteres</b> de duas strings</p>
+    			<p><b>Sintaxe:</b> strncmp(string1, string2, n);</p>
+    			<p><b>Exemplo:</b></p>
+    			<pre>// Compara só os 4 primeiros caracteres</pre>
+			<pre>if (strncmp(nome, "João", 4) == 0) {</pre>
+    			<pre>printf("Começa com João");</pre>
+			<pre>}</pre>
+		</section>
+		<br>
+		<section id="strlen( )">
+    			<h3>strlen( ) - Tamanho da string</h3>
+    			<p>Retorna o <b>numero de caracteres</b> de uma string</p>
+   			<p><b>Sintaxe:</b> strlen(string);</p>
+    			<p><b>Exemplo:</b></p>
+    			<pre>char nome[] = "Vitor";</pre>
+			<pre>int tam = strlen(nome);  // tam = 5</pre>
+		</section>
+		<br>
+		<section id="strcat( )">
+    			<h3>strcat( ) - Concatenar strings</h3>
+    			<p><b>Junta</b> (concatena) duas strings, adicionando o conteúdo da origem ao final do destino</p>
+    			<p><b>Sintaxe:</b> strcat(destino, origem);</p>
+    			<p><b>Exemplo:</b></p>
+    			<pre>char saudacao[50] = "Olá, ";</pre>
+			<pre>strcat(saudacao, "João");  // saudacao = "Olá, João"</pre>
+		</section>
+		<br>
+		<section id="strncat( )">
+    			<h3>strncat( ) - Concatenar com limite</h3>
+    			<p>Junta apenas os <b>primeiros n caracteres</b> da origem ao destino.</p>
+   			<p><b>Sintaxe:</b> strncat(destino, origem, n);</p>
+    			<p><b>Exemplo:</b></p>
+    			<pre>char nome[50] = "João";</pre>
+			<pre>strncat(nome, " Vitor Santos", 6);  // adiciona só " Vitor"</pre>
+		</section>
+		<br>
+		<section id="feedback">
+			<h2>Feedback!</h2>
+			<form>
+				<fieldset>
+					<legend>Sua experiencia com este material!</legend>
+					<label> Nome </label>
+					<input type="text" id="name" name="nome">
+					<br>
+            				<label>Antes de ler este material, você:</label>
+					<div class="select-wrapper">	
+					    <select id="experiencia" name="experiencia_previa">
+						<option value=""disabled selected>- Clique aqui e escolha uma opção -</option>
+						<option value="nunca">Nunca tinha ouvido falar(Primeiro Contato)</option>
+						<option value="ouviFalar">Já ouvi falar(Teoria, mas não pratiquei)</option>
+						<option value="useiAlgumas">Já usei algumas vezes(Tenho dúvidas)</option>
+						<option value="altoConhecimento">Já dominava o assunto (Só Revisão)</option>
+					    </select>
+					</div>
+					<br>
+					<p>Após ler, você se sente capaz de usar as funções?</p>
+    					<label>
+        				<input type="radio" name="capacidade" value="sim"> Sim, conseguiria usar em um exercício
+    					</label>
+    					<br>
+    					<label>
+        				<input type="radio" name="capacidade" value="mais_ou_menos"> Mais ou menos, ainda tenho dúvidas
+    					</label>
+    					<br>
+   					<label>
+        				<input type="radio" name="capacidade" value="nao"> Ainda não me sinto seguro(a)
+    					</label>
+					<br>
+					<br>
+    					<p>O conteúdo estava bem organizado e fácil de seguir?</p>
+    					<label>
+        				<input type="radio" name="organizacao" value="sim"> Sim, estava claro e bem estruturado
+    					</label>
+    					<br>
+    					<label>
+        				<input type="radio" name="organizacao" value="parcialmente"> Parcialmente, algumas partes confundiram
+    					</label>
+    					<br>
+    					<label>
+        				<input type="radio" name="organizacao" value="nao"> Não, ficou difícil de acompanhar
+    					</label>
+					<br>
+					<br>
+					<label for="sugestoes">Sugestões (opcional)</label>
+					<br>
+					<textarea id="sugestoes" name="sugestoes" rows="4" cols="50" placeholder="Escreva aqui suas sugestões"></textarea>
+					<br>
+					<br>
+    					<button type="submit">Enviar</button>
+				</fieldset>
+			</form>
+		</section>
+	</div>
+</body>
+</html>
