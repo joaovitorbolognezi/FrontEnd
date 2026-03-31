@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bichinho Virtual</title>
+
+    <style>
+	body {
+    		margin: 0;
+    		min-height: 100vh;
+    		background: linear-gradient(to bottom, #a8e6cf, #dcedc1, #fefbd8);
+    		display: flex;
+	    	justify-content: center;
+    		align-items: center;
+	}
+
+	#quadro {
+	     background-color: #ffffff;
+    	     border: 3px solid #66bb6a;
+    	     box-shadow: 0px 4px 10px rgba(0, 100, 0, 0.2);
+	}
+
+        #bicho {
+    		width: 250px;
+    		height: auto;
+    		display: block;
+        }
+
+        #btn {
+    		width: 100px;
+    		cursor: pointer;
+    		display: block;
+    		margin: 0;
+    		padding: 0;
+        }
+
+        #btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="quadro">
+        <img id="bicho" src="criatura_fofa.png">
+        <img id="btn" src="mangostao.png" onclick="alimentar()">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
