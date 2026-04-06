@@ -1,46 +1,68 @@
-const bicho = document.getElemen	tById("bicho");
-const btn = document.getElementById("btn");
+document.addEventListener("DOMContentLoaded", function() {
 
-const estados = {
-    normal: "criatura_fofa.png",
-    clicando: "criatura_comendo.png",
-    alimentando: "criatura_coracoes.png",
-    fome30: "criatura_brava.png",
-    fome60: "criatura_morta.png",
-};
+    const bicho = document.getElementById("bicho");
+    const btn = document.getElementById("btn");
 
-let contador = 0;
-let intervalo = null;
-let time_Click = null;
-let time_Out = null;
+    const estados = {
+        normal: "criatura_fofa.png",
+        clicando: "criatura_comendo.png",
+        alimentando: "criatura_coracoes.png",
+        fome30: "criatura_brava.png",
+        fome60: "criatura_morta.png",
+    };
 
-function init_cont() {
-    if (intervalo) clearInterval(intervalo);
+    let contador = 0;
+    let intervalo = null;
+    let time_Click = null;
+    let time_Out = null;
 
-    intervalo = setInterval(() => {
+    // 👇 SEGREDO
+    bicho.addEventListener("click", function() {
         contador++;
-        console.log("Tempo: ", contador);
 
-        if (contador == 30) bicho.src = estados.fome30;
-        if (contador == 60) bicho.src = estados.fome60;
-    }, 1000);
-}
+        if (contador === 5) {
+            document.getElementById("segredoBtn").style.display = "block";
+        }
+    });
 
-function alimentar() {
-    console.log("comendo");
-    contador = 0; // reseta o contador de fome
+    function init_cont() {
+        if (intervalo) clearInterval(intervalo);
 
-    if (time_Click) clearTimeout(time_Click);
+        intervalo = setInterval(() => {
+            contador++;
+            console.log("Tempo: ", contador);
 
-    bicho.src = estados.clicando;
+            if (contador == 30) bicho.src = estados.fome30;
+            if (contador == 60) bicho.src = estados.fome60;
+        }, 1000);
+    }
 
-    time_Click = setTimeout(() => {
-        bicho.src = estados.alimentando;
+    function alimentar() {
+        console.log("comendo");
+        contador = 0;
 
-        time_Out = setTimeout(() => {
-            bicho.src = estados.normal;
-        }, 2000);
-    }, 1000);
-}
+        if (time_Click) clearTimeout(time_Click);
 
-init_cont();
+        bicho.src = estados.clicando;
+
+        time_Click = setTimeout(() => {
+            bicho.src = estados.alimentando;
+
+            time_Out = setTimeout(() => {
+                bicho.src = estados.normal;
+            }, 2000);
+        }, 1000);
+    }
+
+    function mostrarSegredo() {
+        let img = document.getElementById("segredoImg");
+        img.style.display = "block";
+    }
+
+    init_cont();
+
+    // deixa a função global pro onclick funcionar
+    window.mostrarSegredo = mostrarSegredo;
+    window.alimentar = alimentar;
+
+});
