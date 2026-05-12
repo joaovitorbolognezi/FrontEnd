@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.container {
+  width: 340px;
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+select, input {
+  padding: 8px;
+  width: 100%;
+  font-size: 15px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 15px;
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#resultado {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: none;
+}

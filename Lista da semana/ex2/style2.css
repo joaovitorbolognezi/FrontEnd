@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.container {
+  text-align: center;
+  width: 300px;
+}
+
+.campo {
+  margin: 15px 0;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 8px;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+}
